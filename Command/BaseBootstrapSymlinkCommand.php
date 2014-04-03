@@ -43,8 +43,8 @@ abstract class BaseBootstrapSymlinkCommand extends ContainerAwareCommand
         } elseif (false !== $composer = ComposerAdapter::getComposer($input, $output)) {
             $cmanager = new ComposerPathFinder($composer);
             $options = array(
-                    'targetSuffix' => DIRECTORY_SEPARATOR . "Resources" . DIRECTORY_SEPARATOR . static::$targetSuffix,
-                    'sourcePrefix' => '..' . DIRECTORY_SEPARATOR
+                    'targetSuffix' => DIRECTORY_SEPARATOR . "Resources" . DIRECTORY_SEPARATOR . "public" . DIRECTORY_SEPARATOR . static::$targetSuffix,
+                    'sourcePrefix' => '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
                 );
             list($symlinkTarget, $symlinkName) = $cmanager->getSymlinkFromComposer(
                 self::$mopaBootstrapBundleName,
